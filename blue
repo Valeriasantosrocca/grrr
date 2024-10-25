@@ -1,0 +1,25 @@
+# Let's try to display the graph again directly as a visual output here.
+fig, ax = plt.subplots(figsize=(10, 6))
+
+# X-axis positions
+x = range(len(regions))
+
+# Plot bars
+bar_width = 0.35
+ax.bar(x, investment_compliance, width=bar_width, label='Investment in Compliance (million USD)', color='blue')
+ax.bar([i + bar_width for i in x], gdp_contribution, width=bar_width, label='GDP Contribution (million USD)', color='green')
+
+# Label the graph
+ax.set_xlabel('Regions')
+ax.set_ylabel('Amount (million USD)')
+ax.set_title('Graph: Investment in AI Regulation Compliance vs. GDP Contribution')
+ax.set_xticks([i + bar_width / 2 for i in x])
+ax.set_xticklabels(regions)
+ax.legend()
+
+# Show grid and layout
+plt.grid(axis='y', linestyle='--', alpha=0.6)
+plt.tight_layout()
+
+# Display the graph
+plt.show()
